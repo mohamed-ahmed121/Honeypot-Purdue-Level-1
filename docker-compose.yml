@@ -1,0 +1,12 @@
+services:
+  water-tank-plc:
+    build: .
+    container_name: water-tank-plc
+    ports:
+      - "5020:5020"  #modbus
+      - "102:102"    # Siemens S7comm
+      - "8102:8102"  # IEC 61850  not implementred
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
